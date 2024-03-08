@@ -16,7 +16,7 @@ import GalleryImage from "./gallery-adds/gallery-image";
 import configHeaders from "./config-headers";
 
 const Gallery = () => {
-  const [images, setImages] = useState(["ks", "shsh"]);
+  const [images, setImages] = useState([]);
   useEffect(() => {
     const handleFetchImages = async () => {
       try {
