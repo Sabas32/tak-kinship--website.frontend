@@ -23,7 +23,7 @@ const PreLoaderFull = () => {
   // const [isToShowPerc, setIsToShowPerc] = useState(false);
 
   useEffect(() => {
-    window.addEventListener("load", () => {
+    document.addEventListener("DOMContentLoaded", () => {
       setIsLoading(false);
       setTimeout(() => {
         document.querySelector(".App").classList.add("show_app");
