@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 
 const ArrowBackUp = () => {
-  const [progressScroll, setProgressScroll] = useState(100);
+  const [progressScroll, setProgressScroll] = useState(0);
   useEffect(() => {
     // Get the document height and viewport height
     const documentHeight = document.documentElement.scrollHeight;
