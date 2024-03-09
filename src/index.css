@@ -25,7 +25,7 @@ ul {
   --primaryColor: #404742;
   --title-2-color: #292836;
   --secendaryColor: #5e5e5e;
-  --main-margin: hsl(223,90%,50%);
+  --main-margin: hsl(223, 90%, 50%);
   --main-margin: 5em;
 }
 [data-theme="dark"] {
@@ -50,7 +50,14 @@ body {
   background: var(--bodyColor);
   transition: 0.5s ease-in-out;
   height: 100vh;
+  /* overflow-x: hidden; */
+}
+html,
+body {
   overflow-x: hidden;
+}
+body {
+  position: relative;
 }
 
 @font-face {
