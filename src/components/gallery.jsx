@@ -2,16 +2,6 @@ import axios from "axios";
 import { useEffect, useState } from "react";
 import "../css/gallery.css";
 
-import image1 from "../testImages/ADVANCED-TALKS-1200-x-675-px-2-1140x855.webp";
-import image2 from "../testImages/Bianca-Belair-WWE-SmackDown.webp";
-import image3 from "../testImages/FxAZ51hWIAACdds.jpeg";
-import image4 from "../testImages/MV5BNDZjMDQzMTUtYjg5MS00ZWVmLTlhODEtOWYyOWE4OTM0MGJmXkEyXkFqcGdeQXVyMjUyNDk2ODc@._V1_.jpg";
-import image5 from "../testImages/PA-2517440.webp";
-import image6 from "../testImages/Untitled-design-2021-06-17T215720.388-185x480.webp";
-import image7 from "../testImages/Untitled-design-2021-06-17T215720.388.webp";
-import image8 from "../testImages/images (1).jpg";
-import image9 from "../testImages/images.jpg";
-import image10 from "../testImages/skysports-transfers-transfer-rumours_6386408.jpg";
 import GalleryImage from "./gallery-adds/gallery-image";
 import configHeaders from "./config-headers";
 

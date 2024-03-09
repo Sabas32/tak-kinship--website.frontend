@@ -9,7 +9,7 @@ import { Link } from "react-router-dom";
 
 const NavigationBar = ({ className }) => {
   const [changeThemeKey, setChangeThemeKey] = useState(0);
-  const [themeColor, setThemeColor] = useState("light");
+  const [themeColor, setThemeColor] = useState("dark");
 
   const [mobileNavOpen, setMobileNavOpen] = useState(false);
 
