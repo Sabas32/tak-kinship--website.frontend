@@ -50,14 +50,11 @@ body {
   background: var(--bodyColor);
   transition: 0.5s ease-in-out;
   height: 100vh;
-  /* overflow-x: hidden; */
-}
-html,
-body {
   overflow-x: hidden;
 }
 body {
-  position: relative;
+  overflow-x: hidden;
+  width: 100%;
 }
 
 @font-face {
