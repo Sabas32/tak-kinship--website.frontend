@@ -175,19 +175,19 @@
 }
 
 @media (max-width: 1000px) {
-  .portfolio .projectsContainer .singleProject {
+  .portfolio .projectsContainer > div {
     width: calc((100% / 2) - 1em);
     margin: 0.5em;
   }
 }
 @media (max-width: 750px) {
-  .portfolio .projectsContainer .singleProject {
+  .portfolio .projectsContainer > div {
     width: calc(100% - 1em);
     margin: 0.5em 3em;
   }
 }
 @media (max-width: 650px) {
-  .portfolio .projectsContainer .singleProject {
+  .portfolio .projectsContainer > div {
     width: calc(100% - 1em);
     margin: 0.5em;
   }

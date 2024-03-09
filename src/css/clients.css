@@ -50,13 +50,13 @@
   .clients .clientsHeader {
     display: block;
   }
-  .clients .content .whychooseusContainers .box {
+  .clients .content .whychooseusContainers > div {
     width: calc(50% - 1em);
     margin: 0.5em;
   }
 }
 @media (max-width: 780px) {
-  .clients .content .whychooseusContainers .box {
+  .clients .content .whychooseusContainers > div {
     width: calc(100vh - 1em);
     margin: 0.5em;
   }
