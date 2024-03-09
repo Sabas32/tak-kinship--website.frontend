@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import "../css/preloader_full.css";
 import { useInView } from "react-intersection-observer";
 
-const PreLoaderFull = () => {
+const PreLoaderFull = ({ isDoneLoading = false }) => {
   function animateValue(id, maxValue) {
     var obj = document.getElementById(id);
     var current = parseInt(obj.innerHTML, 10); // Parse the current value to an integer
@@ -19,23 +19,23 @@ const PreLoaderFull = () => {
     }, intervalTime);
   }
 
-  const [isLoading, setIsLoading] = useState(true);
+  // const [isDoneLoading, setisDoneLoading] = useState(true);
   // const [isToShowPerc, setIsToShowPerc] = useState(false);
 
   useEffect(() => {
-    document.addEventListener("DOMContentLoaded", () => {
-      setIsLoading(false);
+    if (isDoneLoading) {
       setTimeout(() => {
         document.querySelector(".App").classList.add("show_app");
-      }, 2500);
-    });
-  }, []);
+      }, 1000);
+    }
+    console.log(isDoneLoading);
+  }, [isDoneLoading]);
 
   // const [count100Ref, count100Inview] = useInView();
   // const [current100, setCurrent100] = useState(0);
 
   return (
-    <div className={`preloader_full ${!isLoading && "hideLoader"}`}>
+    <div className={`preloader_full ${isDoneLoading && "hideLoader"}`}>
       <div className="cir">
         {/* <div className="rot"></div>
         <div className="loadingtxt">
@@ -59,6 +59,7 @@ const PreLoaderFull = () => {
                 r="8"
                 transform="rotate(-40,64,64) translate(0,-56)"
               />
+
               <circle
                 class="smiley__eye2"
                 cx="64"

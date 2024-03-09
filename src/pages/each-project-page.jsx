@@ -18,7 +18,7 @@ import DesktopDownloadPage from "../components/projects/DesktopAppDownloadPage";
 import configHeaders from "../components/config-headers";
 import { useInView } from "react-intersection-observer";
 
-const EachProject = () => {
+const EachProject = ({ setAllDoneLoading }) => {
   const paramsObj = useParams();
   const [projectData, setProjectData] = useState({});
   const [projectWeb, setProjectWeb] = useState([]);
@@ -69,6 +69,23 @@ const EachProject = () => {
     triggerOnce: true,
     threshold: 0.3,
   });
+
+  const [loadingFaQs, setLoadingFaQs] = useState(true);
+
+  const handleLoadingFaQs = (isLoading) => {
+    setLoadingFaQs(isLoading);
+  };
+
+  useEffect(() => {
+    if (!loadingFaQs && !isLoading) {
+      console.log("all Done ------------------------------------");
+      console.log(loadingFaQs, isLoading);
+      setAllDoneLoading(true);
+    } else {
+      console.log("all Start xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx");
+      console.log(loadingFaQs, isLoading);
+    }
+  }, [loadingFaQs, isLoading]);
 
   return (
     <section>
@@ -298,7 +315,7 @@ const EachProject = () => {
           </div>
         </main>
       </div>
-      <FAQComponent />
+      <FAQComponent setIsLoading={handleLoadingFaQs} />
       <ContactUs />
       <Footer />
     </section>

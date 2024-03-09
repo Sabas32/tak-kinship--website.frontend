@@ -6,7 +6,7 @@ import axios from "axios";
 import configHeaders from "./config-headers";
 import { useInView } from "react-intersection-observer";
 
-const FAQComponent = () => {
+const FAQComponent = ({ setIsLoading }) => {
   // const faqData = [
   //   {
   //     title: "How can I create an account?",
@@ -33,6 +33,7 @@ const FAQComponent = () => {
   const [faqData, setFaqData] = useState([]);
 
   useEffect(() => {
+    setIsLoading(true);
     const handleFetchFaqs = async () => {
       try {
         const response = await axios.get(
@@ -41,9 +42,11 @@ const FAQComponent = () => {
             headers: configHeaders,
           }
         );
+        setIsLoading(false);
         setFaqData(response.data);
         console.log(response.data);
       } catch (error) {
+        setIsLoading(false);
         console.log(error);
       }
     };

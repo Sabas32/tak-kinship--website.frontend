@@ -8,11 +8,12 @@ import configImages from "./configImages";
 import configHeaders from "./config-headers";
 import { useInView } from "react-intersection-observer";
 
-const Portfolio = () => {
+const Portfolio = ({ setIsLoading }) => {
   const [portfolioArray, setPortfolioArray] = useState([]);
   const [filteredportfolioArray, setFilteredPortfolioArray] = useState([]);
 
   useEffect(() => {
+    setIsLoading(true);
     const handleFetchProjects = async () => {
       try {
         const response = await axios.get(
@@ -21,11 +22,11 @@ const Portfolio = () => {
             headers: configHeaders,
           }
         );
-        console.log(response);
-        console.log(response.data);
+        setIsLoading(false);
         setPortfolioArray(response.data);
         setFilteredPortfolioArray(response.data);
       } catch (error) {
+        setIsLoading(false);
         console.log(error);
       }
     };

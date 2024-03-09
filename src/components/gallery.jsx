@@ -15,9 +15,10 @@ import image10 from "../testImages/skysports-transfers-transfer-rumours_6386408.
 import GalleryImage from "./gallery-adds/gallery-image";
 import configHeaders from "./config-headers";
 
-const Gallery = () => {
+const Gallery = ({ setIsLoading }) => {
   const [images, setImages] = useState([]);
   useEffect(() => {
+    setIsLoading(true);
     const handleFetchImages = async () => {
       try {
         const response = await axios.get(
@@ -26,10 +27,12 @@ const Gallery = () => {
             headers: configHeaders,
           }
         );
+        setIsLoading(false);
         console.log(response);
         console.log(response.data);
         setImages(response.data);
       } catch (error) {
+        setIsLoading(false);
         console.log(error);
       }
     };

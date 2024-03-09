@@ -7,7 +7,7 @@ import axios from "axios";
 import configHeaders from "./config-headers";
 import { useInView } from "react-intersection-observer";
 
-const Team = () => {
+const Team = ({ setIsLoading }) => {
   // const teamData = [
   //   {
   //     id: 1,
@@ -33,6 +33,7 @@ const Team = () => {
   const [teamData, setTeamData] = useState([]);
 
   useEffect(() => {
+    setIsLoading(true);
     const handleFetchTestimonials = async () => {
       try {
         const response = await axios.get(
@@ -41,9 +42,10 @@ const Team = () => {
             headers: configHeaders,
           }
         );
+        setIsLoading(false);
         setTeamData(response.data);
-        console.log(response.data);
       } catch (error) {
+        setIsLoading(false);
         console.log(error);
       }
     };
@@ -67,9 +69,6 @@ const Team = () => {
     triggerOnce: true,
     threshold: 0.5,
   });
-
-
-  
 
   return (
     <div className="team">

@@ -5,13 +5,13 @@
   position: absolute;
   inset: 0;
   z-index: 99999;
-  background: var(--dark-brand-color);
+  background: var(--bodyColor);
   width: 100%;
   position: fixed;
   top: 0;
 }
 .preloader_full.hideLoader svg {
-  animation: hideLoader 1.5s 2500ms ease-in-out forwards;
+  animation: hideLoader 1.5s 1000ms ease-in-out forwards;
   /* transform: translate(); */
   /* opacity: 0;
   height: 0;
@@ -22,7 +22,7 @@
   /* opacity: 0; */
   background: transparent;
   visibility: hidden;
-  transition: background 1000ms, visibility 00ms 3500ms;
+  transition: background 1000ms, visibility 00ms 2500ms;
 }
 .App {
   /* visibility: hidden; */
@@ -62,13 +62,13 @@
   text-transform: uppercase;
   background: red;
   border-radius: 100%;
-  background: var(--dark-brand-color);
+  background: var(--bodyColor);
   display: flex;
   justify-content: center;
   align-items: center;
   font-weight: 700;
   color: #1fa84f;
-  background: radial-gradient(var(--dark-brand-color), #121212 80%);
+  background: radial-gradient(var(--bodyColor), #121212 80%);
 }
 .preloader_full .cir > div.loadingtxt > div {
   animation: infinite ease-in-out 1s opacityChange alternate;

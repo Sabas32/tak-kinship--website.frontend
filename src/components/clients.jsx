@@ -4,7 +4,7 @@ import configHeaders from "./config-headers";
 import { useEffect, useState } from "react";
 import { useInView } from "react-intersection-observer";
 
-const Clients = () => {
+const Clients = ({ setIsLoading }) => {
   // const clientInfoHead = [
   //   {
   //     num: 500,
@@ -42,6 +42,7 @@ const Clients = () => {
   const [clientInfoHead, setClientInfoHead] = useState([]);
 
   useEffect(() => {
+    setIsLoading(true);
     const handleFetchWorkExperience = async () => {
       try {
         const response = await axios.get(
@@ -50,10 +51,12 @@ const Clients = () => {
             headers: configHeaders,
           }
         );
+        setIsLoading(false);
         console.log(response);
         setClientInfoHead(response.data);
       } catch (error) {
         console.log(error);
+        setIsLoading(false);
       }
     };
     handleFetchWorkExperience();
@@ -162,7 +165,6 @@ const Clients = () => {
     } else {
     }
   }, [clientInfoHead, clientHead3Inview]);
-
 
   return (
     <div className="clients">

@@ -7,7 +7,7 @@ import axios from "axios";
 import { useEffect, useState } from "react";
 import { useInView } from "react-intersection-observer";
 
-const AboutUs = () => {
+const AboutUs = ({ setIsLoading }) => {
   const weDeals = [
     {
       svg: (
@@ -148,6 +148,7 @@ const AboutUs = () => {
   const [experiencePercenatage, setExperiencePercenatage] = useState([]);
 
   useEffect(() => {
+    setIsLoading(true);
     const handleFetchWorkExperience = async () => {
       try {
         const response = await axios.get(
@@ -158,7 +159,9 @@ const AboutUs = () => {
         );
         console.log(response);
         setExperiencePercenatage(response.data);
+        setIsLoading(false);
       } catch (error) {
+        setIsLoading(false);
         console.log(error);
       }
     };

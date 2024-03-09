@@ -22,7 +22,7 @@ import PreLoaderFull from "./components/preLoaderFull";
 function App() {
   useEffect(() => {
     if (!localStorage.getItem("themeColor")) {
-      localStorage.setItem("themeColor", "light");
+      localStorage.setItem("themeColor", "dark");
     }
   }, []);
 
@@ -42,9 +42,21 @@ function App() {
 
   // console.log(window.scroll);
 
+  const [loadingAll, setLoadingAll] = useState(false);
+
+  const handleLoadingAll = (isLoading) => {
+    setLoadingAll(isLoading);
+  };
+
+  useEffect(() => {
+    if (loadingAll) {
+      console.log("Page done Loading");
+    }
+  }, [loadingAll]);
+
   return (
     <>
-      <PreLoaderFull />
+      <PreLoaderFull isDoneLoading={loadingAll} />
 
       <div className="App ">
         <Router>
@@ -54,15 +66,33 @@ function App() {
           <ArrowBackUp />
           {/* <HomePage /> */}
           <Routes>
-            <Route path="/" element={<HomePage />} />
-            <Route path="/about" element={<AboutPage />} />
-            <Route path="/contact" element={<ContactPage />} />
-            <Route path="/gallery" element={<GalleryPage />} />
-            <Route path="/offers" element={<OffersPage />} />
-            <Route path="/portfolio" element={<PortfolioPage />} />
+            <Route
+              path="/"
+              element={<HomePage setAllDoneLoading={handleLoadingAll} />}
+            />
+            <Route
+              path="/about"
+              element={<AboutPage setAllDoneLoading={handleLoadingAll} />}
+            />
+            <Route
+              path="/contact"
+              element={<ContactPage setAllDoneLoading={handleLoadingAll} />}
+            />
+            <Route
+              path="/gallery"
+              element={<GalleryPage setAllDoneLoading={handleLoadingAll} />}
+            />
+            <Route
+              path="/offers"
+              element={<OffersPage setAllDoneLoading={handleLoadingAll} />}
+            />
+            <Route
+              path="/portfolio"
+              element={<PortfolioPage setAllDoneLoading={handleLoadingAll} />}
+            />
             <Route
               path="/portfolio/project/:projectId/:type"
-              element={<EachProject />}
+              element={<EachProject setAllDoneLoading={handleLoadingAll} />}
             />
           </Routes>
         </Router>

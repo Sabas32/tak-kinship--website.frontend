@@ -9,7 +9,7 @@ import configImages from "./configImages";
 import configHeaders from "./config-headers";
 import { useInView } from "react-intersection-observer";
 
-const Testimonials = () => {
+const Testimonials = ({ setIsLoading }) => {
   // const testimonials = [
   //   {
   //     id: 1,
@@ -80,6 +80,8 @@ const Testimonials = () => {
   const [testimonials, settestimonials] = useState([]);
 
   useEffect(() => {
+    setIsLoading(true);
+    // setIsLoading(true)
     const handleFetchTestimonials = async () => {
       try {
         const response = await axios.get(
@@ -88,9 +90,11 @@ const Testimonials = () => {
             headers: configHeaders,
           }
         );
+        setIsLoading(false);
         settestimonials(response.data);
         console.log(response.data);
       } catch (error) {
+        setIsLoading(false);
         console.log(error);
       }
     };
@@ -138,6 +142,7 @@ const Testimonials = () => {
     triggerOnce: true,
     threshold: 0.5,
   });
+
   return (
     <div className="testimonials">
       <h4
