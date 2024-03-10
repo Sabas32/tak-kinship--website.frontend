@@ -6,6 +6,7 @@ import menuBlack from "../images/svgs/menu-svgrepo-com-black.svg";
 import TAKKinshipLogo from "../images/TAK Kinship-Logo.png";
 import "../css/navbar.css";
 import { Link } from "react-router-dom";
+import configImages from "./configImages";
 
 const NavigationBar = ({ className }) => {
   const [changeThemeKey, setChangeThemeKey] = useState(0);
@@ -71,7 +72,14 @@ const NavigationBar = ({ className }) => {
       }`}
     >
       <div className="logo">
-        <img src={TAKKinshipLogo} alt="" />
+        <img
+          src={
+            configImages +
+            "/TAK%20Kniship/website%20images/" +
+            "lgbobj12tl3tglzffs3r"
+          }
+          alt=""
+        />
 
         <div className="menu-slide-btn" onClick={handleChangeMobileNav}>
           {themeColor === "light" ? (

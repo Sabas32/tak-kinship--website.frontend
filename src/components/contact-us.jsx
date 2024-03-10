@@ -1,6 +1,6 @@
 // ContactUs.jsx
 
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import "../css/contact-us.css";
 import emailIcon from "../images/svgs/email-9-svgrepo-com.svg";
 import phoneIcon from "../images/svgs/phone-fill-svgrepo-com.svg";
@@ -8,8 +8,9 @@ import locationIcon from "../images/svgs/location-pin-svgrepo-com.svg";
 import igIcon from "../images/svgs/instagram-svgrepo-com.svg";
 import configHeaders from "./config-headers";
 import { useInView } from "react-intersection-observer";
+import axios from "axios";
 
-const ContactUs = () => {
+const ContactUs = ({ setIsLoading }) => {
   const [formData, setFormData] = useState({
     name: "",
     subject: "",
@@ -121,6 +122,31 @@ const ContactUs = () => {
     threshold: 0.5,
   });
 
+  const [contactUsInfo, setContactUsInfo] = useState([]);
+
+  useEffect(() => {
+    setIsLoading(true);
+    const handleFetchContactUsInfo = async () => {
+      try {
+        const response = await axios.get(
+          "https://tak-devs-web-6dd969e7026b.herokuapp.com/api/contact-company-info/",
+          {
+            headers: configHeaders,
+          }
+        );
+        console.log("Contact-us");
+        console.log(response);
+
+        setContactUsInfo(response.data);
+        setIsLoading(false);
+      } catch (error) {
+        setIsLoading(false);
+        console.log(error);
+      }
+    };
+    handleFetchContactUsInfo();
+  }, []);
+
   return (
     <div className="contactUs">
       {/* Replace the following with your existing code */}
@@ -148,8 +174,9 @@ const ContactUs = () => {
         }`}
         ref={postTitleRef}
       >
-        As A Matter Of Fact The Unification Of The Coherent Software Provides A
-        Strict Control Over The Accomplishment Of Intended Estimation
+        Ready to Innovate Together? Have a project in mind or curious about our
+        services? Contact us, and let's start a conversation. We're here to turn
+        your ideas into extraordinary solutions.
       </p>
       <main className="left-right">
         <div className="ltl-home">
@@ -162,72 +189,74 @@ const ContactUs = () => {
           >
             Contact Info :
           </h2>
-          <div className="contactInfo">
-            <div className="info" ref={contactEmailRef}>
-              <img
-                src={emailIcon}
-                alt=""
-                className={`titleNotSeen ${
-                  contactEmailInview ? "titleInView" : ""
-                }`}
-              />
-              <h5
-                className={`titleNotSeen ${
-                  contactEmailInview ? "titleInView" : ""
-                }`}
-              >
-                example@example.com
-              </h5>
+          {contactUsInfo.map((e) => (
+            <div className="contactInfo" key={e.id}>
+              <div className="info" ref={contactEmailRef}>
+                <img
+                  src={emailIcon}
+                  alt=""
+                  className={`titleNotSeen ${
+                    contactEmailInview ? "titleInView" : ""
+                  }`}
+                />
+                <h5
+                  className={`titleNotSeen ${
+                    contactEmailInview ? "titleInView" : ""
+                  }`}
+                >
+                  {e.email}
+                </h5>
+              </div>
+              <div className="info" ref={contactNumberRef}>
+                <img
+                  src={phoneIcon}
+                  alt=""
+                  className={`titleNotSeen ${
+                    contactNumberInview ? "titleInView" : ""
+                  }`}
+                />
+                <h5
+                  className={`titleNotSeen ${
+                    contactNumberInview ? "titleInView" : ""
+                  }`}
+                >
+                  {e.phone_number}
+                </h5>
+              </div>
+              <div className="info" ref={contactLocationRef}>
+                <img
+                  src={locationIcon}
+                  alt=""
+                  className={`titleNotSeen ${
+                    contactLocationInview ? "titleInView" : ""
+                  }`}
+                />
+                <h5
+                  className={`titleNotSeen ${
+                    contactLocationInview ? "titleInView" : ""
+                  }`}
+                >
+                  {e.location}
+                </h5>
+              </div>
+              <div className="info" ref={contactNameRef}>
+                <img
+                  src={igIcon}
+                  alt=""
+                  className={`titleNotSeen ${
+                    contactNameInview ? "titleInView" : ""
+                  }`}
+                />
+                <h5
+                  className={`titleNotSeen ${
+                    contactNameInview ? "titleInView" : ""
+                  }`}
+                >
+                  {e.company_name}
+                </h5>
+              </div>
             </div>
-            <div className="info" ref={contactNumberRef}>
-              <img
-                src={phoneIcon}
-                alt=""
-                className={`titleNotSeen ${
-                  contactNumberInview ? "titleInView" : ""
-                }`}
-              />
-              <h5
-                className={`titleNotSeen ${
-                  contactNumberInview ? "titleInView" : ""
-                }`}
-              >
-                +256 456 6789
-              </h5>
-            </div>
-            <div className="info" ref={contactLocationRef}>
-              <img
-                src={locationIcon}
-                alt=""
-                className={`titleNotSeen ${
-                  contactLocationInview ? "titleInView" : ""
-                }`}
-              />
-              <h5
-                className={`titleNotSeen ${
-                  contactLocationInview ? "titleInView" : ""
-                }`}
-              >
-                Uganda, Kampala
-              </h5>
-            </div>
-            <div className="info" ref={contactNameRef}>
-              <img
-                src={igIcon}
-                alt=""
-                className={`titleNotSeen ${
-                  contactNameInview ? "titleInView" : ""
-                }`}
-              />
-              <h5
-                className={`titleNotSeen ${
-                  contactNameInview ? "titleInView" : ""
-                }`}
-              >
-                Tak Kinship-Company
-              </h5>
-            </div>
-          </div>
+          ))}
         </div>
         <div className="rht-home">
           <form

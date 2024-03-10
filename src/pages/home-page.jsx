@@ -51,6 +51,18 @@ const HomePage = ({ setAllDoneLoading }) => {
     setLoadingFaQs(isLoading);
   };
 
+  const [loadingContactInfo, setLoadingContactInfo] = useState(true);
+
+  const handleLoadingContactInfo = (isLoading) => {
+    setLoadingContactInfo(isLoading);
+  };
+
+  const [loadingFooter, setLoadingFooter] = useState(true);
+
+  const handleLoadingFooter = (isLoading) => {
+    setLoadingFooter(isLoading);
+  };
+
   useEffect(() => {
     if (
       !loadingAbout &&
@@ -58,28 +70,22 @@ const HomePage = ({ setAllDoneLoading }) => {
       !loadingFaQs &&
       !loadingPortFolio &&
       !loadingTeam &&
-      !loadingTestimonial
+      !loadingTestimonial &&
+      !loadingContactInfo &&
+      !loadingFooter
     ) {
-      console.log("all Done ------------------------------------");
-      console.log(
-        loadingAbout,
-        loadingClients,
-        loadingFaQs,
-        loadingPortFolio,
-        loadingTeam,
-        loadingTestimonial
-      );
       setAllDoneLoading(true);
     } else {
-      console.log("all Start xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx");
-      console.log(
-        loadingAbout,
-        loadingClients,
-        loadingFaQs,
-        loadingPortFolio,
-        loadingTeam,
-        loadingTestimonial
-      );
+      // console.log("all Start xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx");
+      // console.log(
+      //   loadingAbout,
+      //   loadingClients,
+      //   loadingFaQs,
+      //   loadingPortFolio,
+      //   loadingTeam,
+      //   loadingTestimonial,
+      //   loadingContactInfo
+      // );
     }
   }, [
     loadingAbout,
@@ -88,6 +94,8 @@ const HomePage = ({ setAllDoneLoading }) => {
     loadingPortFolio,
     loadingTeam,
     loadingTestimonial,
+    loadingContactInfo,
+    loadingFooter,
   ]);
 
   return (
@@ -100,8 +108,8 @@ const HomePage = ({ setAllDoneLoading }) => {
       <Testimonials setIsLoading={handleLoadingTestimonial} />
       <Team setIsLoading={handleLoadingTeam} />
       <FAQComponent setIsLoading={handleLoadingFaQs} />
-      <ContactUs />
-      <Footer />
+      <ContactUs setIsLoading={handleLoadingContactInfo} />
+      <Footer setIsLoading={handleLoadingFooter} />
     </section>
   );
 };

@@ -11,26 +11,38 @@ const ContactPage = ({ setAllDoneLoading }) => {
     setLoadingFaQs(isLoading);
   };
 
+  const [loadingContactInfo, setLoadingContactInfo] = useState(true);
+
+  const handleLoadingContactInfo = (isLoading) => {
+    setLoadingContactInfo(isLoading);
+  };
+
+  const [loadingFooter, setLoadingFooter] = useState(true);
+
+  const handleLoadingFooter = (isLoading) => {
+    setLoadingFooter(isLoading);
+  };
+
   useEffect(() => {
-    if (!loadingFaQs) {
+    if (!loadingFaQs && !loadingContactInfo && !loadingFooter) {
       console.log("all Done ------------------------------------");
-      console.log(loadingFaQs);
+      console.log(loadingFaQs, loadingContactInfo, loadingFooter);
       setAllDoneLoading(true);
     } else {
       console.log("all Start xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx");
-      console.log(loadingFaQs);
+      console.log(loadingFaQs, loadingContactInfo, loadingFooter);
     }
-  }, [loadingFaQs]);
+  }, [loadingFaQs, loadingContactInfo, loadingFooter]);
   return (
     <section>
       <OtherPageBanner
         pageName="CONTACT"
         title="Contact Us"
-        infomation="Although, Final Stages Of The Internal Network Gives A Complete Experience Of The Parameter Of Speculative Environment"
+        infomation="Lost in the digital wilderness? Fear not! Our Contact Us page is the Sherpa of support. Drop us a line, and we'll guide you through the tech-terrain with the finesse of a GPS for laughter."
       />
-      <ContactUs />
+      <ContactUs setIsLoading={handleLoadingContactInfo} />
       <FAQComponent setIsLoading={handleLoadingFaQs} />
-      <Footer />
+      <Footer setIsLoading={handleLoadingFooter} />
     </section>
   );
 };

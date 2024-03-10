@@ -6,6 +6,7 @@ import configHeaders from "./config-headers";
 import axios from "axios";
 import { useEffect, useState } from "react";
 import { useInView } from "react-intersection-observer";
+import configImages from "./configImages";
 
 const AboutUs = ({ setIsLoading }) => {
   const weDeals = [
@@ -83,7 +84,7 @@ const AboutUs = ({ setIsLoading }) => {
           </g>
         </svg>
       ),
-      title: "Support 24h/24",
+      title: "Support 24/7",
     },
     {
       svg: (
@@ -254,16 +255,18 @@ const AboutUs = ({ setIsLoading }) => {
             }`}
             ref={pretitle2Ref}
           >
-            The Best IT Solution <span className="unique-text">Since 2015</span>
+            The Best IT Solution <span className="unique-text">Since 2019</span>
           </h1>
           <p
             className={` titleNotSeen ${pretitle3Inview ? "titleInView" : ""}`}
             ref={pretitle3Ref}
           >
-            At Any Rate, Lorem Ipsum Dolor Sit Amet Consectetur Adipisicing
-            Elit. Eaque Amet, Quod Doloribus The Framework Of The Essence
-            Represents A Bond Between The Flexible Production Planning And The
-            Distribution Of Repetitive Aspect.
+            We pride ourselves on being more than just developers; we are
+            architects of change. Our journey began with a vision – to build a
+            conglomerate that pioneers technological solutions for a brighter,
+            connected future. Guided by this vision, we've developed
+            groundbreaking projects like Telxul and Desn, setting the stage for
+            a new era of tech-driven solutions in Africa and beyond.
           </p>
           <button
             href="#"
@@ -277,7 +280,11 @@ const AboutUs = ({ setIsLoading }) => {
         </div>
         <div className="rht-home" ref={Image1Ref}>
           <img
-            src={aboutImg1}
+            src={
+              configImages +
+              "/TAK%20Kniship/website%20images/" +
+              "v3w8s6w790yp9z7anzos"
+            }
             alt=""
             className={`imageToRight ${Image1Inview ? "imageInview" : ""}`}
           />
@@ -293,15 +300,16 @@ const AboutUs = ({ setIsLoading }) => {
             }`}
             ref={pretitle5Ref}
           >
-            We Deal With The Aspects Of Professional IT Services{" "}
+            We Deal With The Aspects Of Professional{" "}
             <span className="unique-text">IT Services</span>
           </h1>
           <p
             className={` titleNotSeen ${pretitle6Inview ? "titleInView" : ""}`}
             ref={pretitle6Ref}
           >
-            Although, Final Stages Of The Internal Network Gives A Complete
-            Experience Of The Parameter Of Speculative Environment
+            We specialize in professional IT services, ensuring excellence from
+            strategy to execution. As architects of IT solutions, we propel
+            businesses into the future. Elevate your IT experience with us.
           </p>
           <div
             // className=""
@@ -317,7 +325,11 @@ const AboutUs = ({ setIsLoading }) => {
         </div>
         <div className="rht-home" ref={Image2Ref}>
           <img
-            src={aboutImg2}
+            src={
+              configImages +
+              "/TAK%20Kniship/website%20images/" +
+              "gr7aeez5cox8vohnrsws"
+            }
             alt=""
             className={`imageToLeft ${Image2Inview ? "imageInview" : ""}`}
           />
@@ -332,15 +344,17 @@ const AboutUs = ({ setIsLoading }) => {
             }`}
             ref={pretitle8Ref}
           >
-            We Are Here To IT Solution With 20 Years Of
+            We Are Here With {new Date().getFullYear() - 2019} Years Of
             <span className="unique-text"> Experience</span>
           </h1>
           <p
             className={` titleNotSeen ${pretitle9Inview ? "titleInView" : ""}`}
             ref={pretitle9Ref}
           >
-            Although, Final Stages Of The Internal Network Gives A Complete
-            Experience Of The Parameter Of Speculative Environment
+            With {new Date().getFullYear() - 2019} years of seasoned experience,
+            we bring proficiency to every project. Yet, we embrace each new
+            challenge with a commitment to continual learning, ensuring our
+            expertise evolves with the ever-changing landscape of technology.
           </p>
           <div className="">
             {experiencePercenatage.map((e) => (
@@ -427,7 +441,12 @@ const AboutUs = ({ setIsLoading }) => {
         {/*  */}
         <div className="rht-home" ref={Image3Ref}>
           <img
-            src={aboutImg3}
+            // src={aboutImg3}
+            src={
+              configImages +
+              "/TAK%20Kniship/website%20images/" +
+              "i4j6clkkfvsvopzqzypl"
+            }
             alt=""
             className={`imageToRight ${Image3Inview ? "imageInview" : ""}`}
           />

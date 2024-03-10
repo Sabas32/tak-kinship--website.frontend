@@ -18,28 +18,45 @@ const AboutPage = ({ setAllDoneLoading }) => {
     setLoadingFaQs(isLoading);
   };
 
+  const [loadingContactInfo, setLoadingContactInfo] = useState(true);
+
+  const handleLoadingContactInfo = (isLoading) => {
+    setLoadingContactInfo(isLoading);
+  };
+
+  const [loadingFooter, setLoadingFooter] = useState(true);
+
+  const handleLoadingFooter = (isLoading) => {
+    setLoadingFooter(isLoading);
+  };
+
   useEffect(() => {
-    if (!loadingAbout && !loadingFaQs) {
+    if (
+      !loadingAbout &&
+      !loadingFaQs &&
+      !loadingContactInfo &&
+      !loadingFooter
+    ) {
       console.log("all Done ------------------------------------");
-      console.log(loadingAbout, loadingFaQs);
+      console.log(loadingAbout, loadingFaQs, loadingContactInfo, loadingFooter);
       setAllDoneLoading(true);
     } else {
       console.log("all Start xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx");
-      console.log(loadingAbout, loadingFaQs);
+      console.log(loadingAbout, loadingFaQs, loadingContactInfo, loadingFooter);
     }
-  }, [loadingAbout, loadingFaQs]);
+  }, [loadingAbout, loadingFaQs, loadingContactInfo, loadingFooter]);
 
   return (
     <section>
       <OtherPageBanner
         pageName="ABOUT"
         title="About Us"
-        infomation="Although, Final Stages Of The Internal Network Gives A Complete Experience Of The Parameter Of Speculative Environment"
+        infomation="In the vast tapestry of the web, we don't just create technology; we compose symphonies of connection."
       />
       <AboutUs setIsLoading={handleLoadingAbout} />
       <FAQComponent setIsLoading={handleLoadingFaQs} />
-      <ContactUs />
-      <Footer />
+      <ContactUs setIsLoading={handleLoadingContactInfo} />
+      <Footer setIsLoading={handleLoadingFooter} />
     </section>
   );
 };

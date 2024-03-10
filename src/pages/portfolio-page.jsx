@@ -18,28 +18,45 @@ const PortfolioPage = ({ setAllDoneLoading }) => {
     setLoadingPortFolio(isLoading);
   };
 
+  const [loadingContactInfo, setLoadingContactInfo] = useState(true);
+
+  const handleLoadingContactInfo = (isLoading) => {
+    setLoadingContactInfo(isLoading);
+  };
+
+  const [loadingFooter, setLoadingFooter] = useState(true);
+
+  const handleLoadingFooter = (isLoading) => {
+    setLoadingFooter(isLoading);
+  };
+
   useEffect(() => {
-    if (!loadingFaQs && !loadingPortFolio) {
+    if (
+      !loadingFaQs &&
+      !loadingPortFolio &&
+      !loadingContactInfo &&
+      !loadingFooter
+    ) {
       console.log("all Done ------------------------------------");
-      console.log(loadingFaQs, loadingPortFolio);
+      console.log(loadingFaQs, loadingPortFolio, loadingContactInfo);
       setAllDoneLoading(true);
     } else {
       console.log("all Start xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx");
-      console.log(loadingFaQs, loadingPortFolio);
+      console.log(loadingFaQs, loadingPortFolio, loadingContactInfo);
     }
-  }, [loadingFaQs, loadingPortFolio]);
+  }, [loadingFaQs, loadingPortFolio, loadingContactInfo, loadingFooter]);
 
   return (
     <section>
       <OtherPageBanner
-        pageName="OFFERS"
-        title="Our Offers"
-        infomation="Although, Final Stages Of The Internal Network Gives A Complete Experience Of The Parameter Of Speculative Environment"
+        pageName="PORTIFOLIO"
+        title="Our Portifolio"
+        infomation="Welcome to the TAK Kniship Portfolio – where every project is a testament to innovation, a journey into excellence, and a canvas painted with the strokes of transformative technology."
       />
       <Portfolio setIsLoading={handleLoadingPortFolio} />
       <FAQComponent setIsLoading={handleLoadingFaQs} />
-      <ContactUs />
-      <Footer />
+      <ContactUs setIsLoading={handleLoadingContactInfo} />
+      <Footer setIsLoading={handleLoadingFooter} />
     </section>
   );
 };

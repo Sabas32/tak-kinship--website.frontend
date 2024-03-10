@@ -7,8 +7,12 @@ import skypeIco from "../images/svgs/skypeFooter.svg";
 import chevronRight from "../images/svgs/chevron-right-svgrepo-com.svg";
 import taKLogo from "../images/TAK Kinship-Logo.png";
 import { Link } from "react-router-dom";
+import { useEffect, useState } from "react";
+import axios from "axios";
+import configHeaders from "./config-headers";
+import configImages from "./configImages";
 
-const Footer = () => {
+const Footer = ({ setIsLoading }) => {
   const footerItems = document.querySelectorAll(".footer_element_animated");
 
   const handleIntersection = (entries) => {
@@ -36,34 +40,105 @@ const Footer = () => {
     observer.observe(faqItem);
   });
 
+  const [contactUsInfo, setContactUsInfo] = useState([]);
+
+  useEffect(() => {
+    setIsLoading(true);
+    const handleFetchContactUsInfo = async () => {
+      try {
+        const response = await axios.get(
+          "https://tak-devs-web-6dd969e7026b.herokuapp.com/api/contact-company-info/",
+          {
+            headers: configHeaders,
+          }
+        );
+        console.log("Contact-us");
+        console.log(response);
+
+        setContactUsInfo(response.data);
+        setIsLoading(false);
+      } catch (error) {
+        setIsLoading(false);
+        console.log(error);
+      }
+    };
+    handleFetchContactUsInfo();
+  }, []);
+
+  // [
+  //   {
+  //     id: 1,
+  //     company_name: "TAK Kinship Devs",
+  //     location: "Kampala-Uganda, Kitwe",
+  //     email: "sktechug@gmail.com",
+  //     phone_number: "0702699987",
+  //     instgram: "https://www.instagram.com/tak_kniship/",
+  //     twitter: "https://www.instagram.com/tak_kniship/",
+  //     skype: "https://www.instagram.com/tak_kniship/",
+  //     linkedIn: "https://www.instagram.com/tak_kniship/",
+  //   },
+  // ];
+
   return (
     <footer className="footer">
       <div className="top">
         <div className="">
           <div className="box footer_element_animated">
             <a href="#" className="logo" style={{ "--delay": "0ms" }}>
-              <img class="my-2" src={taKLogo} alt="" />
+              <img
+                class="my-2"
+                src={
+                  configImages +
+                  "/TAK%20Kniship/website%20images/" +
+                  "lgbobj12tl3tglzffs3r"
+                }
+                alt=""
+              />
             </a>
             <p style={{ "--delay": "100ms" }}>
-              Lorem ipsum dolor sit amet aspernatur exercitationem fugiat.
+              Your journey with us is more than code and pixels; it's a
+              heartfelt melody, harmonizing dreams and reality in the grand
+              opera of possibility.
             </p>
             <h4 class="" style={{ "--delay": "200ms" }}>
-              follow us
+              Connect With Us
             </h4>
-            <div class="social">
-              <a href="#" className="icon" style={{ "--delay": "300ms" }}>
-                <img src={instagramIco} alt="" style={{ "--delay": "400ms" }} />
-              </a>
-              <a href="#" className="icon" style={{ "--delay": "500ms" }}>
-                <img src={linkedinico} alt="" />
-              </a>
-              <a href="#" className="icon" style={{ "--delay": "600ms" }}>
-                <img src={twitterIco} alt="" />
-              </a>
-              <a href="#" className="icon" style={{ "--delay": "700ms" }}>
-                <img src={skypeIco} alt="" />
-              </a>
-            </div>
+            {contactUsInfo.map((e) => (
+              <div class="social" key={e.id}>
+                <a
+                  href={e.instgram}
+                  className="icon"
+                  style={{ "--delay": "300ms" }}
+                >
+                  <img
+                    src={instagramIco}
+                    alt=""
+                    style={{ "--delay": "400ms" }}
+                  />
+                </a>
+                <a
+                  href={e.linkedIn}
+                  className="icon"
+                  style={{ "--delay": "500ms" }}
+                >
+                  <img src={linkedinico} alt="" />
+                </a>
+                <a
+                  href={e.twitter}
+                  className="icon"
+                  style={{ "--delay": "600ms" }}
+                >
+                  <img src={twitterIco} alt="" />
+                </a>
+                <a
+                  href={e.skype}
+                  className="icon"
+                  style={{ "--delay": "700ms" }}
+                >
+                  <img src={skypeIco} alt="" />
+                </a>
+              </div>
+            ))}
           </div>
         </div>
         <div class="ref-links footer_element_animated">

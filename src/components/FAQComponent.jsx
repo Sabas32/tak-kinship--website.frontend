@@ -5,6 +5,7 @@ import faqImg from "../images/customer-faq.png";
 import axios from "axios";
 import configHeaders from "./config-headers";
 import { useInView } from "react-intersection-observer";
+import configImages from "./configImages";
 
 const FAQComponent = ({ setIsLoading }) => {
   // const faqData = [
@@ -96,8 +97,9 @@ const FAQComponent = ({ setIsLoading }) => {
         }`}
         ref={postTitleRef}
       >
-        As A Matter Of Fact The Unification Of The Coherent Software Provides A
-        Strict Control Over The Accomplishment Of Intended Estimation
+        Got Questions? We've Got Answers! Explore common queries about our
+        services, process, and more. Still have questions? Feel free to reach
+        out
       </p>
       <main className="left-right">
         <div className="ltl-home">
@@ -105,7 +107,12 @@ const FAQComponent = ({ setIsLoading }) => {
         </div>
         <div className="rht-home" ref={imageRef}>
           <img
-            src={faqImg}
+            // src={faqImg}
+            src={
+              configImages +
+              "/TAK%20Kniship/website%20images/" +
+              "onxtpj6bjuafzkke1ayr"
+            }
             alt=""
             className={` imageOff ${imageInview ? "imageOn" : ""}`}
           />

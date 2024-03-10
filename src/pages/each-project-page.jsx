@@ -76,16 +76,28 @@ const EachProject = ({ setAllDoneLoading }) => {
     setLoadingFaQs(isLoading);
   };
 
+  const [loadingContactInfo, setLoadingContactInfo] = useState(true);
+
+  const handleLoadingContactInfo = (isLoading) => {
+    setLoadingContactInfo(isLoading);
+  };
+
+  const [loadingFooter, setLoadingFooter] = useState(true);
+
+  const handleLoadingFooter = (isLoading) => {
+    setLoadingFooter(isLoading);
+  };
+
   useEffect(() => {
-    if (!loadingFaQs && !isLoading) {
+    if (!loadingFaQs && !isLoading && !loadingContactInfo && !loadingFooter) {
       console.log("all Done ------------------------------------");
       console.log(loadingFaQs, isLoading);
       setAllDoneLoading(true);
     } else {
       console.log("all Start xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx");
-      console.log(loadingFaQs, isLoading);
+      console.log(loadingFaQs, isLoading, loadingContactInfo);
     }
-  }, [loadingFaQs, isLoading]);
+  }, [loadingFaQs, isLoading, loadingContactInfo, loadingFooter]);
 
   return (
     <section>
@@ -94,12 +106,28 @@ const EachProject = ({ setAllDoneLoading }) => {
           <div className="ltl-home" ref={sideLeftRef}>
             <div className={` toLeft ${sideLeftInview ? "sideBack" : ""}`}>
               <div className="headerImage">
-                <img src={headerImage} alt="" srcset="" />
+                <img
+                  src={
+                    configImages +
+                    "/TAK%20Kniship/website%20images/" +
+                    "ebvpmaflxhbvhoqoxste"
+                  }
+                  alt=""
+                  srcset=""
+                />
               </div>
               <h2 className="pretitle">Telxul</h2>
               <h1>Project Goals</h1>
               <p>{projectData.project_goals}</p>
-              <img src={headerImage2} alt="" srcset="" />
+              <img
+                src={
+                  configImages +
+                  "/TAK%20Kniship/website%20images/" +
+                  "ag5qtoghjsmm6dkau88n"
+                }
+                alt=""
+                srcset=""
+              />
               <p>{projectData.description}</p>
 
               {paramsObj &&
@@ -316,8 +344,8 @@ const EachProject = ({ setAllDoneLoading }) => {
         </main>
       </div>
       <FAQComponent setIsLoading={handleLoadingFaQs} />
-      <ContactUs />
-      <Footer />
+      <ContactUs setIsLoading={handleLoadingContactInfo} />
+      <Footer setIsLoading={handleLoadingFooter} />
     </section>
   );
 };

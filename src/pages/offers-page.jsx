@@ -12,28 +12,40 @@ const OffersPage = ({ setAllDoneLoading }) => {
     setLoadingFaQs(isLoading);
   };
 
+  const [loadingContactInfo, setLoadingContactInfo] = useState(true);
+
+  const handleLoadingContactInfo = (isLoading) => {
+    setLoadingContactInfo(isLoading);
+  };
+
+  const [loadingFooter, setLoadingFooter] = useState(true);
+
+  const handleLoadingFooter = (isLoading) => {
+    setLoadingFooter(isLoading);
+  };
+
   useEffect(() => {
-    if (!loadingFaQs) {
+    if (!loadingFaQs && !loadingContactInfo && !loadingFooter) {
       console.log("all Done ------------------------------------");
-      console.log(loadingFaQs);
+      console.log(loadingFaQs, loadingContactInfo);
       setAllDoneLoading(true);
     } else {
       console.log("all Start xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx");
-      console.log(loadingFaQs);
+      console.log(loadingFaQs, loadingContactInfo);
     }
-  }, [loadingFaQs]);
+  }, [loadingFaQs, loadingContactInfo, loadingFooter]);
 
   return (
     <section>
       <OtherPageBanner
         pageName="OFFERS"
         title="Our Offers"
-        infomation="Although, Final Stages Of The Internal Network Gives A Complete Experience Of The Parameter Of Speculative Environment"
+        infomation=" Let every service be the spark that fuels your vision and propels your goals. Your success, our mission – together, we code the path to achievement."
       />
       <Offers />
       <FAQComponent setIsLoading={handleLoadingFaQs} />
-      <ContactUs />
-      <Footer />
+      <ContactUs setIsLoading={handleLoadingContactInfo} />
+      <Footer setIsLoading={handleLoadingFooter} />
     </section>
   );
 };

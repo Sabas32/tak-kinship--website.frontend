@@ -54,12 +54,15 @@ const Offers = () => {
           What We’re Offering?
         </h1>
         <p
-          className={`titleNotInview ${pInview ? "offersInView" : ""}`}
+          className={`titleNotInview post-title ${
+            pInview ? "offersInView" : ""
+          }`}
           style={{ "--delay": "400ms" }}
           ref={ptitleRef}
         >
-          As A Matter Of Fact The Unification Of The Coherent Software Provides
-          A Strict Control Over The Accomplishment Of Intended Estimation
+          We believe in transforming ideas into extraordinary solutions. With
+          innovation at our core, we redefine expectations, turning goals into
+          shared missions. Choose us for a journey beyond the ordinary.
         </p>
       </div>
 
@@ -71,32 +74,35 @@ const Offers = () => {
         <OfferOne
           title={"Web Developement"}
           information={
-            " Lorem Ipsum Dolor Sit Amet Consectetur Adipisicing Elit. Optio Unde,Exped Ita Nesciunt Quibusdam Quis Tempore Quas Tenetur"
+            "We craft dynamic and responsive websites that go beyond aesthetics. Our web development services ensure seamless user experiences, robust functionality, and a strong online presence. From intuitive interfaces to scalable back-end solutions, we turn your digital vision into a captivating reality."
           }
           className={`${offerRef1Inview ? "offersInView" : ""}`}
           // ref={offerRef1}
           outerRef={offerRef1}
         />
+
         <OfferOne
           title={"App Developement"}
           information={
-            " Lorem Ipsum Dolor Sit Amet Consectetur Adipisicing Elit. Optio Unde,Exped Ita Nesciunt Quibusdam Quis Tempore Quas Tenetur"
+            "We excel in creating innovative and user-centric mobile applications. Our app development services encompass the entire process, from ideation to deployment. Whether it's iOS or Android, we specialize in turning ideas into engaging, high-performance applications that resonate with your audience."
           }
           className={`${offerRef2Inview ? "offersInView" : ""}`}
           outerRef={offerRef2}
         />
+
         <OfferOne
           title={"Desktop Developement"}
           information={
-            " Lorem Ipsum Dolor Sit Amet Consectetur Adipisicing Elit. Optio Unde,Exped Ita Nesciunt Quibusdam Quis Tempore Quas Tenetur"
+            "Experience the power of tailored desktop applications with Palnet. Our desktop development services are designed for efficiency, security, and user-friendliness. We bring your ideas to life with applications that seamlessly integrate into your workflow, ensuring a reliable and intuitive desktop experience."
           }
           className={`${offerRef3Inview ? "offersInView" : ""}`}
           outerRef={offerRef3}
         />
+
         <OfferOne
           title={"UI/UX Developement"}
           information={
-            " Lorem Ipsum Dolor Sit Amet Consectetur Adipisicing Elit. Optio Unde,Exped Ita Nesciunt Quibusdam Quis Tempore Quas Tenetur"
+            "We understand the pivotal role of design in user satisfaction. Our UI/UX design services focus on creating visually stunning interfaces coupled with an intuitive user experience. From wireframes to polished designs, we ensure that every interaction leaves a lasting impression, enhancing user engagement and satisfaction."
           }
           className={`${offerRef4Inview ? "offersInView" : ""}`}
           outerRef={offerRef4}

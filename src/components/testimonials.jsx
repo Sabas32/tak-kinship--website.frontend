@@ -1,4 +1,3 @@
-import testProfile from "../images/test-app-site.jpg";
 import "../css/testimonial.css";
 import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
@@ -168,8 +167,10 @@ const Testimonials = ({ setIsLoading }) => {
         }`}
         ref={postTitleRef}
       >
-        As A Matter Of Fact The Unification Of The Coherent Software Provides A
-        Strict Control Over The Accomplishment Of Intended Estimation
+        At TAK, our client testimonials are like tech comedy gold. Get ready to
+        LOL and see why our clients are the heroes of our digital blockbuster!.
+        These aren't just reviews; they're love letters to innovation, sealed
+        with the stamp of satisfaction
       </p>
 
       <div
@@ -212,28 +213,3 @@ const Testimonials = ({ setIsLoading }) => {
 };
 
 export default Testimonials;
-
-const TestmonialBlock = () => {
-  return (
-    <div className="singleTestimonial box">
-      <div className="heading">
-        <div className="profileImg">
-          <img src={testProfile} alt="" />
-        </div>
-        <div className="nameProf">
-          <h1 className="title-2"> Masaba Ian Sam</h1>
-          <p>Programmer</p>
-        </div>
-      </div>
-      <div className="info">
-        <p>
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Sit, labore
-          dolore laborum dolorum culpa ducimus ipsam quo, veniam animi pariatur
-          facilis tempora incidunt nostrum quisquam, cum quasi laudantium?
-          Voluptates, sequi? Possimus ipsa, excepturi praesentium dolore quae
-          placeat voluptatem doloremque deserunt?
-        </p>
-      </div>
-    </div>
-  );
-};

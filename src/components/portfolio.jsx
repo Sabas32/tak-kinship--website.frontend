@@ -1,5 +1,4 @@
 import "../css/portfolio.css";
-import testAppSite from "../images/test-app-site.jpg";
 import eyeIcon from "../images/svgs/eye-svgrepo-com.svg";
 import { useEffect, useState } from "react";
 import axios from "axios";
@@ -113,7 +112,7 @@ const Portfolio = ({ setIsLoading }) => {
             <li>
               <p
                 className="nav-link"
-                onClick={() => handleFilterToEach("Decktop")}
+                onClick={() => handleFilterToEach("Desktop")}
               >
                 Desktop
               </p>
@@ -166,24 +165,3 @@ const Portfolio = ({ setIsLoading }) => {
 };
 
 export default Portfolio;
-
-const ProjectBlock = () => {
-  return (
-    <div className="singleProject">
-      <img src={testAppSite} alt="app-img" className="back-Img" />
-      <div className="veiwProjectOverly-black"></div>
-      <div className="veiwProjectOverly">
-        <h3>Telxul</h3>
-        <h6>Web Application</h6>
-        <div className="madeWith">
-          <p>#react </p>
-          <p>#django </p>
-        </div>
-        <div className="viewButton ">
-          <img src={eyeIcon} alt="" />
-          <a>View Project</a>
-        </div>
-      </div>
-    </div>
-  );
-};

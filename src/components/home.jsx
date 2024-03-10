@@ -1,6 +1,7 @@
 import { Link } from "react-router-dom";
 import homeImg from "../images/home-img.png";
 import { useInView } from "react-intersection-observer";
+import configImages from "./configImages";
 
 const Home = () => {
   const [h1Ref, h1InView] = useInView({
@@ -32,17 +33,17 @@ const Home = () => {
             ref={h1Ref}
             style={{ "--delay": "000ms" }}
           >
-            We are <span className="unique-text">TAK Kinship</span> Campony.
+            We are <span className="unique-text">TAK Kinship</span> Developers.
           </h1>
           <p
             className={`isNotVisible ${pInView ? "homeEmisVisible" : ""}`}
             ref={pRef}
             style={{ "--delay": "200ms" }}
           >
-            At Any Rate, Lorem Ipsum Dolor Sit Amet Consectetur Adipisicing
-            Elit. Eaque Amet, Quod Doloribus The Framework Of The Essence
-            Represents A Bond Between The Flexible Production Planning And The
-            Distribution Of Repetitive Aspect
+            Welcome At TAK Kniship, we don't just build projects; we engineer
+            solutions that redefine possibilities. As a growing tech startup,
+            our passion is to harness cutting-edge technology to address
+            real-world challenges and shape the future.
           </p>
           <Link to="about">
             <button
@@ -60,7 +61,11 @@ const Home = () => {
         <div className="rht-home" ref={rightRef}>
           <img
             className={`isNotVisibleIm ${rightInView ? "homeEmisVisible" : ""}`}
-            src={homeImg}
+            src={
+              configImages +
+              "/TAK%20Kniship/website%20images/" +
+              "k5bpzmwoynrhw52fiejy"
+            }
             alt=""
           />
         </div>

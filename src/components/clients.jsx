@@ -27,15 +27,15 @@ const Clients = ({ setIsLoading }) => {
   const clientInfoCards = [
     {
       title: "Latest Technologies",
-      info: "Lorem Ipsum Dolor Sit Amet Consectetur Adipisicing Elit. Optio Unde, Exped Ita Nesciunt Quibusdam Quis Tempore Quas Tenetur",
+      info: "Our commitment to the latest technologies ensures that your projects are not just current but future-ready. We bring the bleeding edge to your fingertips, turning technology into a competitive advantage.",
     },
     {
       title: "Uniqe Solutions",
-      info: "Lorem Ipsum Dolor Sit Amet Consectetur Adipisicing Elit. Optio Unde, Exped Ita Nesciunt Quibusdam Quis Tempore Quas Tenetur",
+      info: "Our commitment to uniqueness means your project isn't just another iteration; it's a bespoke creation tailored to meet your distinct needs. Elevate your expectations – experience the power of TAK's unique solutions.",
     },
     {
       title: "Powerful Strategies",
-      info: "Lorem Ipsum Dolor Sit Amet Consectetur Adipisicing Elit. Optio Unde, Exped Ita Nesciunt Quibusdam Quis Tempore Quas Tenetur",
+      info: "Strategy is the backbone of success, and at TAK, we understand its potency. Our powerful strategies are not just plans; they are roadmaps to success. With a blend of creativity and precision, we navigate the digital landscape to ensure your goals are not just met but exceeded.",
     },
   ];
 
@@ -195,7 +195,7 @@ const Clients = ({ setIsLoading }) => {
               }`}
             >
               <div className="counter">{e.no_of_workers}</div>
-              <div className="title-2">Hard Worker</div>
+              <div className="title-2">Hard Workers</div>
             </div>
           </div>
           <div className="" ref={clientHead3Ref}>
@@ -255,8 +255,11 @@ const Clients = ({ setIsLoading }) => {
           }`}
           ref={postTitleRef}
         >
-          As A Matter Of Fact The Unification Of The Coherent Software Provides
-          A Strict Control Over The Accomplishment Of Intended Estimation
+          We don't just meet expectations; we surpass them. It's our commitment
+          to personalized solutions, unwavering dedication, and a
+          forward-thinking approach that sets us apart. At TAK, every project is
+          a promise of excellence, where client satisfaction isn't a goal—it's a
+          standard.
         </p>
         <div className="whychooseusContainers">
           {/* {clientInfoCards.map((e, index) => (
