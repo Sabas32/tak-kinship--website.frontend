@@ -17,6 +17,7 @@ import axios from "axios";
 import DesktopDownloadPage from "../components/projects/DesktopAppDownloadPage";
 import configHeaders from "../components/config-headers";
 import { useInView } from "react-intersection-observer";
+import configImages from "../components/configImages";
 
 const EachProject = ({ setAllDoneLoading }) => {
   const paramsObj = useParams();
