@@ -3,6 +3,12 @@ import "../css/preloader_full.css";
 import { useInView } from "react-intersection-observer";
 
 const PreLoaderFull = ({ isDoneLoading = false }) => {
+  useEffect(() => {
+    if (!localStorage.getItem("themeColor")) {
+      localStorage.setItem("themeColor", "dark");
+    }
+  }, []);
+
   function animateValue(id, maxValue) {
     var obj = document.getElementById(id);
     var current = parseInt(obj.innerHTML, 10); // Parse the current value to an integer
