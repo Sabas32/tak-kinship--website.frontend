@@ -100,7 +100,7 @@ const Team = ({ setIsLoading }) => {
 
       <div className="profileCardContainer">
         {teamData.map((e, index) => (
-          <div ref={profileCarsRef}>
+          <div>
             <div
               // className=""
               key={e.id}
